@@ -1,3 +1,10 @@
+function preload(){
+fondo=loadImage(('img/fondo.jpg'))
+
+}
+
+
+
 const charactsongs = [
 /*   {
       name: "nombre artista",
@@ -14,12 +21,13 @@ const charactsongs = [
 let app;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1960, 1055);
   app = new App(charactsongs);
 }
 
 function draw() {
   background(220);
+  image(fondo, 0,0,1960,1055)
   app.draw();
 }
 
