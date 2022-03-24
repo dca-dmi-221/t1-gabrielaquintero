@@ -8,8 +8,8 @@ class Archive{
     }
 
     drawList(i) {
-        text(this._name, 50, 200 + (50 * i));
-        image(this._img, 20, 200 + (50 * i), 30, 30);
+        text(this._name, 1585, 200 + (50 * i));
+        image(this._img, 1535, 200 + (50 * i), 30, 30);
     }
 
     drawCurrent() {
