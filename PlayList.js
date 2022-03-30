@@ -11,24 +11,38 @@ class playList{
         });
     }
 
+
+    showCurrentSong(){
+        for (let index = 0; index < this._songs.length; index++) {
+            const element = songs[index];
+            
+        }
+    }
+
     drawList(i) {
         if(this.isHover(i)) {
             stroke(0);
             noFill();
-            rect(40, 180 + (50 * i), 380, 25);
+            rect(40, 185 + (70 * i), 380, 25);
             noStroke();
             fill(0);
         }
-        text(this._name, 50, 200 + (50 * i));
+        textSize(20)
+        text(this._name, 60, 200 + (70 * i));
+        
     }
 
     clickPlaylist(i, callback) {
         if(this.isHover(i)) {
             callback();
+            console.log("funciona")
         }
     }
 
     isHover(i) {
-        return (mouseX > 40 && mouseX < 420 && mouseY > 180 + (50 * i) && mouseY < 205 + (50 * i));
+        return (mouseX > 40 && mouseX < 420 && mouseY > 180 + (70 * i) && mouseY < 205 + (70 * i));
     }
+
+
+    
 }
