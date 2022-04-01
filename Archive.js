@@ -42,9 +42,15 @@ class Archive{
     isHover(i) {
         return (mouseX > 1514 && mouseX < 1823 && mouseY > 198 + (70 * i) && mouseY < 252 + (70 * i));
     }
+
+    clickPause(){
+        
+    }
    
     
-
+    stop() {
+        this._file.stop();
+    }
     play() {
         this._file.play();
     }

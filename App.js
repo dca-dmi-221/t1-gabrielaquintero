@@ -15,6 +15,7 @@ class App{
 
         this._currentPlaylist = 0;
         //this._currentSong=0
+        this.isPlaying = false;
         console.log(this.songs);
     }
 
@@ -25,11 +26,12 @@ class App{
         this._playLists.forEach((playlist, i) => {
             playlist.drawList(i);
         });
-        this.songs.forEach((song, index) => {
+        
+        /*this.songs.forEach((song, index) => {
             song.clickSong(index,()=>this._currentSong=index)
             song.drawCurrent(this.songs[this._currentSong]);
             
-        });
+        });*/
 
        /*  if(this.currentSong.file.isPlaying()) fill(255, 0, 0);
         else fill(0, 255, 0); */
@@ -41,23 +43,29 @@ class App{
 
     click() {
         this._playLists.forEach((playlist, index) => {
-            playlist.clickPlaylist(index, () => this._currentPlaylist = index)
+            playlist.clickPlaylist(index, () => {
+                this._playLists[this._currentPlaylist].stopPlaying()
+                this._currentPlaylist = index;
+            })
         })
-        this.songs.forEach((song,index)=>{
-            song.clickSong(index,()=>this._currentSong=index)
-            //console.log();
-            console.log(this.songs[this._currentSong])
-        })
-        if(dist(20, 20, mouseX, mouseY) <= 10) {
-            if(this.currentSong.file.isPlaying()) {
-                this.currentSong.pause();
+        this._playLists[this._currentPlaylist].clickSongs();
+        
+        if(dist(962, 922, mouseX, mouseY) <= 30) {
+            
+            let song = this._playLists[this._currentPlaylist].isPlay;
+            
+            this.isPlaying = song;
+            console.log(this.isPlaying)
+            console.log(song)
+            console.log(this._currentPlaylist.currtSong);
+
+            if(this.isPlaying === true) {
+                [this._currentPlaylist.currtSong].pause();
                 console.log("Pause");
             } else {
-                this.currentSong.play();
+                this._playLists[this._currentPlaylist].playSong();
                 console.log("Play");
-
-            }
-        }
+         
     }
 /* 
     pause()
@@ -67,28 +75,6 @@ class App{
     stop()
     shuffle() */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+}
 }
