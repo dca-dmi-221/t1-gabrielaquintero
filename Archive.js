@@ -24,10 +24,12 @@ class Archive{
 
     
 
-    drawCurrent(i) {
-        text(this._name, 825, 699)
-        image(this._img, 774, 666)
-        text(this._singer,830,699)
+    drawCurrent() {
+        textSize(25)
+        text(this._name, 920, 804)
+        image(this._img, 815, 418,350,350)
+        textSize(20)
+        text(this._singer,850,842)
 
     }
     
@@ -70,4 +72,5 @@ class Archive{
     get img() {
         return this._img;
     }
+    
 }

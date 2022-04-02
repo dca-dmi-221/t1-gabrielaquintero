@@ -26,6 +26,15 @@ class App{
         this._playLists.forEach((playlist, i) => {
             playlist.drawList(i);
         });
+
+        this._playLists[this._currentPlaylist].drawCurrent();
+        //console.log(this._playLists[this._currentPlaylist])
+
+        /*let s =this._playLists[this._currentPlaylist]
+        if (s != null){
+            s.nextSong()
+        }
+       
         
         /*this.songs.forEach((song, index) => {
             song.clickSong(index,()=>this._currentSong=index)
@@ -53,20 +62,37 @@ class App{
         if(dist(962, 922, mouseX, mouseY) <= 30) {
             
             let song = this._playLists[this._currentPlaylist].isPlay;
-            
+            let s =this._playLists[this._currentPlaylist].currtSong;
+            console.log(s.file)
+            let b = this._playLists[this._currentPlaylist];
             this.isPlaying = song;
             console.log(this.isPlaying)
-            console.log(song)
-            console.log(this._currentPlaylist.currtSong);
+           
 
             if(this.isPlaying === true) {
-                [this._currentPlaylist.currtSong].pause();
+                console.log(s,"hola");
+                s.file.pause();
+                let r = false;
+                b.setPlay(false);
                 console.log("Pause");
+                console.log(r)
+                console.log(this._playLists[this._currentPlaylist].isPlay)
             } else {
                 this._playLists[this._currentPlaylist].playSong();
                 console.log("Play");
-         
+                b.setPlay (true);
     }
+
+    
+        if(dist(851, 922, mouseX, mouseY) <= 10){
+            console.log("hola")
+    
+            
+        }
+    
+
+        
+
 /* 
     pause()
     next()
@@ -76,5 +102,8 @@ class App{
     shuffle() */
 
 }
+}
+get currtPlaylist(){
+    return this._currentPlaylist
 }
 }

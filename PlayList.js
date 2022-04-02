@@ -14,6 +14,15 @@ class playList{
         });
     }
 
+    drawCurrent(){
+        if(this._currSong != null){
+            this._currSong.drawCurrent()
+        }
+
+    }
+
+  
+
     clickSongs(i,callback) {
         if(this.isHover(i)) {
             this._currentSong.stop()
@@ -54,12 +63,13 @@ class playList{
             console.log(this._currSong)
             this._currSong.play();
             this._isPlay = true;
-            
+            //console.log(this.currtSong.currentTime())
             //currSong.onended(() => this._currentSong++);
 
         }
     }
 
+   
 
     stopPlaying() {
         if(this._currentSong !== null)this._songs[this._currentSong].stop();
@@ -80,9 +90,10 @@ class playList{
     isHover(i) {
         return (mouseX > 40 && mouseX < 420 && mouseY > 180 + (70 * i) && mouseY < 205 + (70 * i));
     }
-    clickPause(){
-        if(mouseX){
-    }
+  
+
+setPlay(p) {
+this._isPlay = p
 }
 
 get currentSong(){
@@ -94,7 +105,10 @@ get currtSong(){
 }
 
 get isPlay(){
+   
     return this._isPlay
 }
-    
+
+
+
 }

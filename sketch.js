@@ -78,14 +78,14 @@ function preload(){
 function setup() {
   createCanvas(1960, 1055);
   app = new App(charactsongs, songFiles);
-  //slider=createSlider(0,1,0.5,0.01)
+  //slider=createSlider(0.0,1.0,0.5,0.01)
 }
 
 function draw() {
   background(220);
   image(fondo, 0,0,1960,1055)
   app.draw();
-  //app.currentSong.setVolume(slider.value())
+  //playList.currentSong.setVolume(slider.value())
 }
 
 function mousePressed () {
