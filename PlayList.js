@@ -30,7 +30,7 @@ class playList{
             this._currentSong.play();
             
             //currSong.onended(() => this._currentSong++);
-                //callback();
+                callback();
                 console.log("funciona")
     }
 
@@ -77,11 +77,6 @@ class playList{
     }
     
 
-    pauseSong(){
-        this._songs[this._currentSong].pause();
-        this._isPlay = false;
-    }
-
     playSong(){
         this._currSong.play();
         this._isPlay = true;
@@ -107,6 +102,15 @@ get currtSong(){
 get isPlay(){
    
     return this._isPlay
+}
+
+get song(){
+    return this._songs
+}
+
+set actualSong(currtSong){
+ this._currentSong=currtSong
+
 }
 
 

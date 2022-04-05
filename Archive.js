@@ -5,6 +5,8 @@ class Archive{
         this._singer=singer
         this._file=file
         this._img=img
+        
+        
     }
 
     drawList(i) {
@@ -15,13 +17,6 @@ class Archive{
         textSize(15)
         text(this._singer,1585,240+(70*i))
     }
-
-    /*drawSongs(i){
-        text(this._name, 905, 220 + (70 * i));
-        image(this._img, 761, 473 + (70 * i), 50, 50);
-        text(this._singer,1585,240+(70*i))
-    }*/
-
     
 
     drawCurrent() {
@@ -29,7 +24,9 @@ class Archive{
         text(this._name, 920, 804)
         image(this._img, 815, 418,350,350)
         textSize(20)
-        text(this._singer,850,842)
+        text(this._singer,927,842)
+        textSize(20)
+        text(this._file.duration(),927,870)
 
     }
     
@@ -44,12 +41,7 @@ class Archive{
     isHover(i) {
         return (mouseX > 1514 && mouseX < 1823 && mouseY > 198 + (70 * i) && mouseY < 252 + (70 * i));
     }
-
-    clickPause(){
-        
-    }
-   
-    
+ 
     stop() {
         this._file.stop();
     }

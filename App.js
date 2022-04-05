@@ -14,7 +14,7 @@ class App{
         this._playLists.push(new playList([this.songs[2], this.songs[3], this.songs[6]], "Amor"));
 
         this._currentPlaylist = 0;
-        //this._currentSong=0
+        this._currentSong=0
         this.isPlaying = false;
         console.log(this.songs);
     }
@@ -48,9 +48,15 @@ class App{
 
         text("x: "+mouseX+"  y: " + mouseY, mouseX, mouseY);
     }
-    
 
     click() {
+
+        if(dist(1100, 922, mouseX, mouseY) <= 50) {
+            nextSong([this._currentPlaylist], this._playLists[this._currentPlaylist].currtSong,this._playLists[this._currentPlaylist].currtSong[this._currentSong]);  
+            console.log([this._currentPlaylist], this._playLists[this._currentPlaylist].currtSong, currtSong.song[currentSong]);
+        } 
+
+
         this._playLists.forEach((playlist, index) => {
             playlist.clickPlaylist(index, () => {
                 this._playLists[this._currentPlaylist].stopPlaying()
@@ -60,7 +66,7 @@ class App{
         this._playLists[this._currentPlaylist].clickSongs();
         
         if(dist(962, 922, mouseX, mouseY) <= 30) {
-            
+           
             let song = this._playLists[this._currentPlaylist].isPlay;
             let s =this._playLists[this._currentPlaylist].currtSong;
             console.log(s.file)
@@ -83,27 +89,29 @@ class App{
                 b.setPlay (true);
     }
 
-    
-        if(dist(851, 922, mouseX, mouseY) <= 10){
-            console.log("hola")
-    
-            
-        }
-    
-
         
+    }
+}
 
-/* 
-    pause()
-    next()
-    previous()
-    changeOrder()
-    stop()
-    shuffle() */
 
+    get currtPlaylist(){
+        return this._currentPlaylist
+    }
 }
-}
-get currtPlaylist(){
-    return this._currentPlaylist
-}
+
+function nextSong(playlist, cancion, indexSong){
+    if (playlist == 0){
+        console.log("si funciona");
+        cancion.stop();
+
+        if(currentSong < playlist.lenght-1) {
+            indexSong += 1;
+        } else {
+            indexSong = 0;
+        }
+
+        //cancion.play();
+
+       // console.log(this._playLists[0].this.songs[0]);
+    }
 }
