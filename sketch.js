@@ -1,3 +1,5 @@
+//tuve ayuda de todos los monitores, natalia,daniel,juan y christian
+//esto de charactsongs y el preload me lo ayudó a hacer el monitor juan bravo
 const charactsongs = [
   {
     name: "Cant back down",
