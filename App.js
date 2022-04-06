@@ -16,7 +16,7 @@ class App{
         this._currentPlaylist = 0;
         this._currentSong=0
         this.isPlaying = false;
-        console.log(this.songs);
+        console.log(this.songs)
     }
 
     draw() {
@@ -51,10 +51,15 @@ class App{
 
     click() {
 
-        if(dist(1100, 922, mouseX, mouseY) <= 50) {
-            nextSong([this._currentPlaylist], this._playLists[this._currentPlaylist].currtSong,this._playLists[this._currentPlaylist].currtSong[this._currentSong]);  
-            console.log([this._currentPlaylist], this._playLists[this._currentPlaylist].currtSong, currtSong.song[currentSong]);
-        } 
+        //AQUI ES LLAMANDO LA FUNCION DE SIGUIENTE CANCION QUE NO PUDE HACER 
+        /*if(dist(1100, 922, mouseX, mouseY) <= 50) {
+           // console.log([this._currentPlaylist].length, '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+            //nextSong(this._playLists, this._currentPlaylist, this._playLists[this._currentPlaylist].currtSong);  
+
+            this._playLists[0].setCurrentSong(2)
+            console.log(this._playLists[0]);
+            console.log([this._currentPlaylist], this._playLists[this._currentPlaylist].currtSong);
+        }*/ 
 
 
         this._playLists.forEach((playlist, index) => {
@@ -98,20 +103,32 @@ class App{
         return this._currentPlaylist
     }
 }
-
-function nextSong(playlist, cancion, indexSong){
+//PROFE TODO ESTO FUE TRATANDO DE HACER LO DE SIGUIENTE CANCION PERO NO ME FUNCIONA
+/*function nextSong(playlistArray, playlist, cancion){
+    console.log(playlistArray, playlist, cancion);
+    let currentIndex = playlistArray[playlist]._songs.findIndex(song => song.nombre === cancion.nombre);
+    console.log(currentIndex, '<<<<<<<<<<<<<<<<<<<<<<<<<');
     if (playlist == 0){
         console.log("si funciona");
         cancion.stop();
-
-        if(currentSong < playlist.lenght-1) {
-            indexSong += 1;
+        console.log(playlistArray[playlist].currentSong.file, 'hhhhhhhhh');
+        currentIndex ++;
+        
+        //console.log(playlistArray[playlist]._songs[currentInde x], '-------------------------');
+        //playlistArray[playlist].changeCurrentSong = 2
+        //console.log(playlistArray[playlist].currentSong.file, 'hhhhhhhhh');
+        playlistArray[playlist].currentSong.file.play() 
+        //playlist[currentIndex].file.play();
+       //sole.log(playlist[currentIndex], currentIndex, playlist.length, 'cancionnnn');
+        if(currentIndex < playlist.lenght-1) {
         } else {
-            indexSong = 0;
+            currentIndex = 0;
         }
 
         //cancion.play();
 
        // console.log(this._playLists[0].this.songs[0]);
     }
-}
+}*/
+
+

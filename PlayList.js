@@ -1,5 +1,5 @@
 //en PlayList= se hacen todas las listas de reproduccion
-class playList{
+class playList {
     constructor(songs, name) {
         this._songs = songs;
         this._name = name;
@@ -14,27 +14,27 @@ class playList{
         });
     }
 
-    drawCurrent(){
-        if(this._currSong != null){
+    drawCurrent() {
+        if (this._currSong != null) {
             this._currSong.drawCurrent()
         }
 
     }
 
-  
 
-    clickSongs(i,callback) {
-        if(this.isHover(i)) {
+    //not working yet
+    clickSongs(i, callback) {
+        if (this.isHover(i)) {
             this._currentSong.stop()
-            this._currentSong+=1;
+            this._currentSong += 1;
             this._currentSong.play();
-            
-            //currSong.onended(() => this._currentSong++);
-                callback();
-                console.log("funciona")
-    }
 
-}
+            //currSong.onended(() => this._currentSong++);
+            callback();
+            console.log("funciona")
+        }
+
+    }
     /*showCurrentSong(){
         for (let index = 0; index < this._songs.length; index++) {
             const element = songs[index];
@@ -43,7 +43,7 @@ class playList{
     }*/
 
     drawList(i) {
-        if(this.isHover(i)) {
+        if (this.isHover(i)) {
             stroke(0);
             noFill();
             rect(40, 185 + (70 * i), 380, 25);
@@ -52,11 +52,11 @@ class playList{
         }
         textSize(20)
         text(this._name, 60, 200 + (70 * i));
-        
+
     }
 
     clickPlaylist(i, callback) {
-        if(this.isHover(i)) {
+        if (this.isHover(i)) {
             callback();
             this._currentSong = 0;
             this._currSong = this._songs[this._currentSong];
@@ -69,50 +69,54 @@ class playList{
         }
     }
 
-   
+
 
     stopPlaying() {
-        if(this._currentSong !== null)this._songs[this._currentSong].stop();
+        if (this._currentSong !== null) this._songs[this._currentSong].stop();
         this._isPlay = false;
     }
-    
 
-    playSong(){
+
+    playSong() {
         this._currSong.play();
         this._isPlay = true;
     }
-    
+
     isHover(i) {
         return (mouseX > 40 && mouseX < 420 && mouseY > 180 + (70 * i) && mouseY < 205 + (70 * i));
     }
-  
 
-setPlay(p) {
-this._isPlay = p
-}
 
-get currentSong(){
-    return this._currentSong
-}
+    setPlay(p) {
+        this._isPlay = p
+    }
 
-get currtSong(){
-    return this._currSong
-}
+    getCurrentSong() {
+        return this._currentSong
+    }
 
-get isPlay(){
-   
-    return this._isPlay
-}
+    setCurrentSong(newSong){
+        this._currentSong = newSong
+    }
 
-get song(){
-    return this._songs
-}
+    get currtSong() {
+        return this._currSong
+    }
 
-set actualSong(currtSong){
- this._currentSong=currtSong
+    set changeCurrentSong(newSong) {
+        this.currentSong = newSong
+    }
 
-}
+    get isPlay() {
 
+        return this._isPlay
+    }
+
+    get song() {
+        return this._songs
+    }
+
+    
 
 
 }
